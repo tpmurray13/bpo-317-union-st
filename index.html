@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>317 Union St — Broker Price Opinion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg:#ffffff; --color-surface:#ffffff; --color-surface-2:#eaf2ed; --color-border:#e1ded6; --color-text:#333333; --color-text-muted:#6b6f6c;
+      --color-primary:#17613c; --color-primary-2:#d9ebe1; --color-band:#a3701f; --color-band-soft:#f2e6d3;
+      --color-alert:#a3341f; --color-alert-soft:#f2dcd3;
+      --radius-md:.5rem; --radius-lg:.9rem; --radius-xl:1.2rem;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.06); --shadow-md:0 8px 24px rgba(0,0,0,.08);
+      --font-display:'Outfit', system-ui, sans-serif; --font-body:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);line-height:1.6}
+    a{color:var(--color-primary)} .container{max-width:1100px;margin:0 auto;padding:0 var(--space-4)}
+    .topbar{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:2px solid var(--color-primary);z-index:20}
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:var(--space-3) 0;flex-wrap:wrap;gap:var(--space-2)}
+    .logo{display:flex;gap:var(--space-3);align-items:center;font-weight:600}
+    .logo img{height:42px;width:auto;display:block}
+    .hero{padding:var(--space-16) 0 var(--space-12)}
+    .eyebrow{font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-3)}
+    h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;font-weight:700;color:var(--color-primary)}
+    h1{font-size:var(--text-2xl);max-width:32ch;margin-bottom:var(--space-4)} h2{font-size:var(--text-xl);margin-bottom:var(--space-5)} h3{font-size:var(--text-lg);margin-bottom:var(--space-3)} h4{font-size:var(--text-base);margin-bottom:var(--space-2)}
+    .lede{max-width:72ch;color:var(--color-text-muted)}
+    .grid{display:grid;grid-template-columns:1.3fr .9fr;gap:var(--space-8);align-items:start}
+    .card{background:var(--color-surface);border:1px solid rgba(31,35,32,.12);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm)}
+    .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);margin-top:var(--space-8)}
+    .stat{background:var(--color-surface-2);border-radius:var(--radius-lg);padding:var(--space-4)} .stat-label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted)} .stat-value{font-size:var(--text-lg);font-weight:700;margin-top:.2rem;color:var(--color-primary)}
+    .stat-alert .stat-value{color:var(--color-alert)}
+    section{padding:var(--space-10) 0}
+    section.alt{background:var(--color-surface-2)}
+    .table{width:100%;border-collapse:collapse;font-size:var(--text-sm)} .table th,.table td{padding:.85rem .6rem;border-bottom:1px solid rgba(31,35,32,.1);text-align:left;vertical-align:top} .table th{color:var(--color-text-muted);font-weight:600;white-space:nowrap}
+    .table-wrap{overflow-x:auto}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8)}
+    .prop-card + .prop-card{margin-top:var(--space-6)}
+    .spec-list{display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-4)}
+    .spec-row{padding-bottom:var(--space-3);border-bottom:1px solid rgba(31,35,32,.1)}
+    .spec-row:last-child{border-bottom:none;padding-bottom:0}
+    .spec-label{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.25rem}
+    .spec-value{font-size:var(--text-sm);line-height:1.55}
+    .three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+    .pill{display:inline-block;background:var(--color-primary-2);color:var(--color-primary);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-band{display:inline-block;background:var(--color-band-soft);color:var(--color-band);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-alert{display:inline-block;background:var(--color-alert-soft);color:var(--color-alert);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-outline{display:inline-block;border:1px solid rgba(31,35,32,.18);color:var(--color-text-muted);padding:.3rem .65rem;border-radius:999px;font-size:var(--text-xs);font-weight:600;margin:.15rem .25rem .15rem 0}
+    .hero-photo{width:100%;border-radius:var(--radius-xl);box-shadow:var(--shadow-md);display:block;margin-bottom:var(--space-6);object-fit:cover;max-height:520px}
+    .photo-sm{width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);display:block;margin-bottom:var(--space-4);object-fit:cover;max-height:260px}
+    .note{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4)}
+    footer{padding:var(--space-10) 0;background:var(--color-primary);color:#ffffff;font-size:var(--text-sm)}
+    .footer-inner{display:flex;align-items:center;gap:var(--space-6);flex-wrap:wrap}
+    .footer-logo{height:36px;width:auto;filter:brightness(0) invert(1)}
+    .disclaimer{background:var(--color-surface-2);border-radius:var(--radius-lg);padding:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-6)}
+    .prop-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-4) 0 var(--space-6)}
+    .prop-divider .badge{background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:700;font-size:var(--text-xs);letter-spacing:.06em;text-transform:uppercase;padding:.4rem .85rem;border-radius:999px;white-space:nowrap}
+    .prop-divider .badge.two{background:var(--color-band)}
+    .prop-divider hr{flex:1;border:none;border-top:1px solid rgba(31,35,32,.15)}
+    .terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
+    .exhibit-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);margin-top:var(--space-4)}
+    .exhibit-cap{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:-.75rem;margin-bottom:var(--space-4)}
+    .reuse-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5);margin-top:var(--space-5)}
+    .reuse-card{background:var(--color-surface);border:1px solid rgba(31,35,32,.12);border-radius:var(--radius-lg);padding:var(--space-5)}
+    .reuse-card h4{margin-bottom:var(--space-2)}
+    .reuse-card ul{margin:0 0 0 1.1rem;padding:0;font-size:var(--text-sm)}
+    .reuse-card li{margin-bottom:.35rem}
+    @media (max-width: 820px){.grid,.two-col,.terms-grid,.three-col,.exhibit-grid,.reuse-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+    .btn-print{display:inline-flex;align-items:center;gap:.5rem;background:var(--color-primary);color:#ffffff;border:none;padding:.55rem 1.1rem;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:var(--text-xs);letter-spacing:.02em;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s ease}
+    .btn-print:hover{background:#0f4a2d}
+    .btn-print svg{width:15px;height:15px;fill:currentColor;flex:none}
+    .topbar-actions{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+    @media print {
+      .no-print{display:none !important}
+      *{-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
+      html,body{font-size:10.5pt;line-height:1.45}
+      .topbar{position:static;backdrop-filter:none;box-shadow:none;border-bottom:2px solid var(--color-primary)}
+      .hero{padding:14pt 0 10pt}
+      section{padding:12pt 0}
+      .grid,.two-col,.terms-grid,.three-col,.exhibit-grid,.reuse-grid{grid-template-columns:1fr;gap:10pt}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8pt}
+      .hero-photo{max-height:260pt;box-shadow:none}
+      .photo-sm{max-height:150pt;box-shadow:none}
+      .prop-card + .prop-card{margin-top:10pt}
+      .spec-list{gap:6pt;margin-top:6pt}
+      .spec-row{padding-bottom:5pt}
+      .spec-label{font-size:7.5pt}
+      .spec-value{font-size:9pt;line-height:1.4}
+      h1{font-size:19pt;margin-bottom:8pt}
+      h2{font-size:14.5pt;margin-bottom:8pt}
+      h3{font-size:12pt;margin-bottom:6pt}
+      h4{font-size:10.5pt;margin-bottom:4pt}
+      .card{box-shadow:none;border:1px solid #d7d3c8;padding:10pt}
+      .stat{page-break-inside:avoid}
+      .reuse-card{page-break-inside:avoid;border:1px solid #d7d3c8}
+      table{font-size:9pt}
+      tr{page-break-inside:avoid}
+      .comps-table{table-layout:fixed;width:100%}
+      .comps-table th,.comps-table td{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:6.6pt;line-height:1.35;padding:.3rem .2rem}
+      .adj-table{table-layout:fixed;width:100%}
+      .adj-table th,.adj-table td{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:7.1pt;line-height:1.35;padding:.3rem .2rem}
+      .adj-table th:nth-child(1),.adj-table td:nth-child(1){width:16%}
+      .adj-table th:nth-child(2),.adj-table td:nth-child(2){width:10%}
+      .adj-table th:nth-child(3),.adj-table td:nth-child(3){width:8%}
+      .adj-table th:nth-child(4),.adj-table td:nth-child(4){width:56%}
+      .adj-table th:nth-child(5),.adj-table td:nth-child(5){width:10%}
+      .table-wrap{overflow-x:visible}
+      h2,h3,h4{page-break-after:avoid}
+      .prop-divider{page-break-after:avoid}
+      footer{background:var(--color-primary) !important;color:#ffffff !important;padding:10pt 0}
+      a{color:var(--color-primary) !important;text-decoration:none}
+      @page{margin:0.55in}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo">
+        <img src="assets/gm-logo.svg" alt="Grant-Murray Real Estate" />
+      </div>
+      <div class="topbar-actions">
+        <div class="pill">Prepared for Everhart LLC</div>
+        <button class="btn-print no-print" type="button" onclick="window.print()">
+          <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7h2a2 2 0 0 1 2 2v7h-4v4H6v-4H2v-7a2 2 0 0 1 2-2h2zm2-5v5h8V4H8zm8 14H8v3h8v-3zm2-2h2v-5H4v5h2v-2h12v2z"/></svg>
+          Print / Save as PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Broker Price Opinion &middot; Sale &amp; Lease &middot; 317 Union St, Fayetteville, NC 28301</div>
+        <h1>317 Union St &mdash; Former All American Automotive &mdash; Broker Price Opinion</h1>
+        <p class="lede">A single-story, <strong>4,740 SF</strong> masonry commercial building on a <strong>0.43-acre</strong> downtown parcel, built in 1966 as an auto-repair facility (formerly "All American Automotive"). The building is currently occupied by two indoor-sports tenants but is being valued <strong>as vacant/owner-occupied and vacating</strong> per client direction. This report sets out independently researched sale comps, lease comps, an adjustment grid, and recommended dual-track sale and lease listing terms.</p>
+        <img class="hero-photo" src="assets/subject_streetview_final.jpg" alt="Street view of the brick commercial building at 317 Union St, Fayetteville, NC, showing the front canopy, brick perimeter wall, and gated entrance" />
+        <div class="stats">
+          <div class="stat"><div class="stat-label">Building size (GLA)</div><div class="stat-value">4,740 SF</div></div>
+          <div class="stat"><div class="stat-label">Parcel / zoning</div><div class="stat-value">0.43 ac &middot; DT2 &mdash; Downtown-2</div></div>
+          <div class="stat"><div class="stat-label">Indicated sale value</div><div class="stat-value">$355,000</div></div>
+          <div class="stat stat-alert"><div class="stat-label">Recommended list price</div><div class="stat-value">$369,000</div></div>
+          <div class="stat"><div class="stat-label">Recommended lease rate</div><div class="stat-value">$9.50/SF/Yr, NNN</div></div>
+          <div class="stat"><div class="stat-label">Commission terms</div><div class="stat-value">6% co-brokered / 4% in-house</div></div>
+        </div>
+        <p class="note">Full comp research, an adjustment grid built from independently verified downtown-Fayetteville sales, zoning/nonconforming-use analysis, and dual sale/lease listing terms follow below.</p>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Subject property summary</h2>
+        <div class="card prop-card">
+          <div class="spec-list">
+            <div class="spec-row"><div class="spec-label">Use / history</div><div class="spec-value">Single-story masonry building built 1966, historically operated as an auto-repair facility ("All American Automotive" per Cumberland County's building name field) with 5 service bays and a mezzanine, per a prior (now expired) 2020 lease listing. The building is currently occupied by two indoor-sports tenants, <strong>Gladiator Elite Wrestling</strong> and <strong>Fear This Wrestling Club</strong> (per Google Maps place listings, informational only). Per client direction, this report values the real estate <strong>as vacant/owner-occupied and vacating</strong>, not on any in-place tenancy.</div></div>
+            <div class="spec-row"><div class="spec-label">Owner of record</div><div class="spec-value"><strong>Everhart LLC</strong>, mailing address 2730 A Rozzelles Ferry Rd, Charlotte, NC 28208 &mdash; an absentee (Charlotte-based) ownership entity. Notably, this mailing address is identical to the headquarters of <strong>RJS Properties, Inc.</strong>, a Charlotte-based commercial real estate investment/development firm (2730 Rozzelles Ferry Rd, Suite A) &mdash; see marketing disclosure below.</div></div>
+            <div class="spec-row"><div class="spec-label">Parcel / building</div><div class="spec-value">Cumberland County REID 0437652596000, PIN 0437-65-2596; property description "IMP UNION ST (POST OFFICE GAR)." Building GLA (county-authoritative) is <strong>4,740 SF</strong>, 1 story, Class C &mdash; concrete/masonry construction with brick veneer/CMU exterior, built 1966. Interior mix includes office, average-grade retail-store space, and service-garage area, plus <strong>1,558 SF of mezzanine storage</strong> and two canopies (430 SF + 522 SF). A/C is present; no fire sprinkler system.</div></div>
+            <div class="spec-row"><div class="spec-label">Condition / depreciation</div><div class="spec-value">Cumberland County's own record discloses <strong>63% physical depreciation</strong> and <strong>15% functional depreciation</strong> &mdash; both materially heavier than a typical 1966-vintage small commercial building, and a central driver of this report's adjustment and lease-rate recommendations below.</div></div>
+            <div class="spec-row"><div class="spec-label">Land</div><div class="spec-value">County administrative record shows <strong>0.43 ac (18,730.80 SF)</strong>; a GIS-calculated figure shows 0.38 ac &mdash; a minor discrepancy disclosed here but not resolved with a survey. County land rate is $2.75/SF.</div></div>
+            <div class="spec-row"><div class="spec-label">Zoning</div><div class="spec-value"><strong>DT2 &mdash; Downtown-2</strong>, per the City of Fayetteville Unified Development Ordinance. See the dedicated zoning/nonconforming-use analysis below &mdash; the property's historical auto-repair use is no longer allowed to be re-established under current zoning.</div></div>
+            <div class="spec-row"><div class="spec-label">2025 assessed value (reference only)</div><div class="spec-value"><strong>$249,787 total</strong> (Land $47,724 + Building $182,981 + Misc. Improvements $19,082), per the county's cost-approach record. Cited for reference only, not relied upon as the basis of value below.</div></div>
+            <div class="spec-row"><div class="spec-label">Last recorded sale</div><div class="spec-value">$75,000 on 2/3/1999 to the current owner &mdash; a stale, 27-year-old transaction with no bearing on current market value.</div></div>
+            <div class="spec-row"><div class="spec-label">Source</div><div class="spec-value"><a href="https://taxpwa.co.cumberland.nc.us/camapwa/PropertySummary.aspx?PARCELPK=82399" target="_blank" rel="noopener">Cumberland County CAMA record, PARCELPK 82399</a>; <a href="https://www.loopnet.com/Listing/317-Union-St-Fayetteville-NC/18271294/" target="_blank" rel="noopener">prior LoopNet lease listing (2020, expired)</a>; Google Maps place listings. Pulled 9/15/2026.</div></div>
+          </div>
+          <div class="exhibit-grid">
+            <div>
+              <img class="photo-sm" src="assets/subject_streetview_final.jpg" alt="Front exterior view of 317 Union St showing the brick building, canopy, and perimeter wall" />
+              <p class="exhibit-cap">Exhibit 1 &mdash; Feb. 2026 street-level view of the subject building and gated frontage on Union St.</p>
+            </div>
+            <div>
+              <img class="photo-sm" src="assets/for_lease_sign_zoom.jpg" alt="Close-up of an existing FOR LEASE sign posted on the subject property's gate, branded RJS" />
+              <p class="exhibit-cap">Exhibit 2 &mdash; existing "FOR LEASE" sign already posted on the gate (see marketing disclosure below).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Marketing &amp; ownership disclosure</h2>
+        <div class="card" style="border-left:3px solid var(--color-band)">
+          <p style="margin-top:0">A February 2026 street-level image shows a <strong>"FOR LEASE" sign already posted on the property's own gate</strong>, branded "RJS" with a Charlotte-area phone number. Independent research on that branding identifies <strong>RJS Properties, Inc.</strong>, a private, family-owned commercial real estate investment and development firm headquartered at <strong>2730 Rozzelles Ferry Rd, Suite A, Charlotte, NC 28208</strong> (<a href="https://www.rjsproperties.com/" target="_blank" rel="noopener">RJS Properties</a>).</p>
+          <p>That address is <strong>identical</strong> &mdash; down to the suite letter &mdash; to the mailing address Cumberland County has on file for the property's owner, <strong>Everhart LLC</strong>. This strongly suggests Everhart LLC is an affiliated ownership entity of RJS Properties' principals, and that the existing "for lease" marketing was placed by the ownership's own in-house leasing arm rather than an unrelated competing brokerage. This is disclosed here as a material relationship fact Grant-Murray should confirm directly with the client contact before any new listing agreement is finalized, since it may affect exclusivity, existing prospect conversations, or commission-sharing expectations.</p>
+          <p class="note">The phone number on the sign was only legible at street-view resolution and could not be independently confirmed digit-for-digit; the "RJS" branding and address match are the more reliable data points here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Zoning &amp; nonconforming-use analysis</h2>
+        <div class="card">
+          <p style="margin-top:0">Per the <a href="https://online.encodeplus.com/regs/fayetteville-nc/export2doc.aspx?pdf=1&tocid=005.030.004.001.002" target="_blank" rel="noopener">Fayetteville UDO Table 30-4.A.2</a> use table for the DT-1/DT-2 downtown districts:</p>
+          <ul style="margin:0 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.5rem"><strong>Automobile repair and servicing (without painting/body-work)</strong> is a special-use (S) in DT-1, but <strong>prohibited (&#47;) in DT-2</strong> &mdash; the subject's own zoning district. The building's historical auto-repair use is therefore a <strong>legally nonconforming use</strong>: it cannot be re-established without a variance or rezoning, which meaningfully narrows the pool of buyers/tenants who could resume that exact use.</li>
+            <li style="margin-bottom:.5rem"><strong>Commercial recreation, indoor</strong> is a <strong>permitted (P)</strong> use in DT2 &mdash; meaning the current wrestling-school/sports-training occupancy is a fully conforming use, unlike the former auto-repair operation. This is a genuine positive for marketability: it demonstrates a proven, by-right reuse path and broadens the buyer/tenant pool toward general retail, flex, indoor-recreation, and office uses.</li>
+            <li>Other relevant DT2 findings: general "repair establishment" (non-automotive) = permitted; automotive painting/body shop = special-use; automobile parts/installation = special-use; tire/muffler sales and mounting = permitted; athletic field/clubhouse = permitted. A prospective buyer or tenant proposing any automotive-adjacent use should confirm current status directly with the <a href="https://www.fayettevillenc.gov/City-Departments/Development-Services/Planning-Zoning" target="_blank" rel="noopener">City of Fayetteville Planning &amp; Zoning Division</a> ((910) 433-1612) before relying on this ordinance-text analysis alone.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Methodology and verification basis</h2>
+        <div class="card">
+          <p style="margin-top:0">This BPO values the subject <strong>as vacant/owner-occupied real estate</strong> using the <strong>sales comparison approach</strong> for the sale opinion, and a market-rent survey for the lease recommendation, cross-checked against (but not reliant upon) the county's cost-approach assessed value.</p>
+          <ul style="margin:0 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.5rem"><strong>All comps were independently researched</strong> &mdash; no client documents were supplied for this assignment, and none of the comps below are taken from any marketing brochure; each carries its own public-record or brokerage-listing source link.</li>
+            <li style="margin-bottom:.5rem"><strong>Three of the five sale comps are county-verified, closed-sale transactions</strong> from Cumberland County's own "Subject Area Improved Sales" report for the subject's market area (VCS 8114), the strongest available evidence. Two additional same-city sales were located and independently verified through commercial listing sources to broaden the size range represented in the grid.</li>
+            <li>Adjustments reflect Grant-Murray Real Estate's professional judgment as the prospective listing broker; this is a broker's opinion of value for marketing purposes, not a certified USPAP appraisal.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Comparable sales &mdash; downtown/near-downtown Fayetteville commercial buildings</h2>
+        <p class="lede" style="margin-bottom:var(--space-6)">Five independently verified closed sales of small commercial buildings in Fayetteville, each with disclosed building SF and price, form the evidence base below. The first three are drawn directly from Cumberland County's own market-area sales report for the subject's immediate VCS (submarket); the latter two broaden the size range.</p>
+        <div class="card table-wrap">
+          <table class="table comps-table">
+            <tr><th>Comp</th><th>Sold</th><th>Price</th><th>Bldg SF</th><th>$/SF</th><th>Notes</th><th>Source</th></tr>
+            <tr><td><strong>216 Mason St</strong>, Fayetteville, NC</td><td>7/8/2022</td><td>$295,000</td><td>2,154</td><td>$136.95</td><td>Built 1900; downtown parcel one block from subject, same county market area (VCS 8114)</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/SaleDetails.aspx?VCS=8114&PARCELPK=82399" target="_blank" rel="noopener">Cumberland County CAMA</a></td></tr>
+            <tr><td><strong>324 Mason St</strong>, Fayetteville, NC</td><td>2/4/2021</td><td>$325,000</td><td>2,515</td><td>$129.23</td><td>Built 1980; same downtown market area as subject (VCS 8114)</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/SaleDetails.aspx?VCS=8114&PARCELPK=82399" target="_blank" rel="noopener">Cumberland County CAMA</a></td></tr>
+            <tr><td><strong>344 Ray Ave</strong>, Fayetteville, NC</td><td>10/3/2019</td><td>$370,000</td><td>1,219</td><td>$303.53</td><td>Built 1951; same downtown market area (VCS 8114); very small building &mdash; price is heavily land/site-value driven and treated as a secondary outlier below</td><td><a href="https://taxpwa.co.cumberland.nc.us/camapwa/SaleDetails.aspx?VCS=8114&PARCELPK=82399" target="_blank" rel="noopener">Cumberland County CAMA</a></td></tr>
+            <tr><td><strong>301 Robeson St</strong>, Fayetteville, NC</td><td>8/2024</td><td>$525,000</td><td>11,700</td><td>$44.87</td><td>Built 1956; CC (Community Commercial) zoning, receiving dock and 8-ft roll-up door; larger, more industrial-flex profile</td><td><a href="https://realmo.com/property/301-robeson-st-fayetteville-nc-28301-5513/us53-0917923" target="_blank" rel="noopener">Realmo</a></td></tr>
+            <tr><td><strong>1500 Gillespie St</strong>, Fayetteville, NC</td><td>1/23/2023</td><td>$120,000</td><td>1,776</td><td>$67.57</td><td>Small flex building near downtown; later re-listed for sale in 2025 at $175,000, confirming market appreciation since this sale</td><td><a href="https://raleighrealty.com/home/1500-gillespie-st-fayetteville-nc-28306-1aa8a17d" target="_blank" rel="noopener">Raleigh Realty (MLS history)</a></td></tr>
+          </table>
+        </div>
+        <p class="note">Numerous other Fayetteville listings located during this research were <strong>active asking-price listings, not closed sales</strong>, and are excluded from the grid as they do not qualify as valid comps per standard practice (e.g., 217&ndash;219 W Russell St, a 14,424 SF flex/warehouse building listed at $1,400,000 by another Grant-Murray Real Estate agent &mdash; useful market context, not a closed-sale comp). All sources verified independently; none taken from any brochure supplied with this assignment. Pulled 9/15/2026.</p>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Adjustment matrix</h2>
+        <p class="lede" style="margin-bottom:var(--space-6)">Each comp is adjusted to the subject's profile: a 4,740 SF, 1966-built masonry building in DT2 downtown Fayetteville, carrying county-documented 63% physical and 15% functional depreciation and a legally nonconforming former auto-repair use.</p>
+        <div class="card table-wrap">
+          <table class="table adj-table">
+            <tr><th>Comp property</th><th>Unadj. $/SF</th><th>Net Adj. %</th><th>What was adjusted</th><th>Adj. $/SF</th></tr>
+            <tr><td><strong>216 Mason St</strong></td><td>$136.95</td><td>&minus;26%</td><td>Location: same downtown submarket as subject, one block away (0%). Size: comp is 55% smaller than the subject's 4,740 SF, and smaller buildings command a $/SF premium the subject's larger footprint won't fully capture (&minus;12%). Condition: subject carries county-documented 63% physical/15% functional depreciation, materially worse than this comp appears to have carried at sale (&minus;15%). Zoning/use: subject's former auto-repair use is now prohibited/nonconforming under DT2 (&minus;5%). Time: sale closed ~4.2 yrs ago; modest appreciation since (+6%).</td><td><strong>$101.34</strong></td></tr>
+            <tr><td><strong>324 Mason St</strong></td><td>$129.23</td><td>&minus;20%</td><td>Location: same downtown submarket (0%). Size: comp is 47% smaller than the subject (&minus;10%). Condition: comp built 1980 (newer, presumably better condition) vs. the subject's heavy depreciation (&minus;15%). Zoning/use: nonconforming-use constraint (&minus;5%). Time: sale closed ~5.6 yrs ago, the oldest Mason St sale; more appreciation accrued since (+10%).</td><td><strong>$103.38</strong></td></tr>
+            <tr><td><strong>344 Ray Ave</strong></td><td>$303.53</td><td>&minus;48%</td><td>Location: same downtown submarket (0%). Size: comp is 74% smaller than the subject (1,219 SF) &mdash; the strongest size-premium distortion in the set, largely a small-building/land-value effect not transferable to a 4,740 SF building (&minus;45%). Condition: comp built 1951, but unclear condition at sale; treated conservatively against subject's documented depreciation (&minus;10%). Zoning/use: nonconforming-use constraint (&minus;5%). Time: sale closed ~6.9 yrs ago, the oldest sale in the set (+12%).</td><td><strong>$157.84</strong> (outlier)</td></tr>
+            <tr><td><strong>301 Robeson St</strong></td><td>$44.87</td><td>+26%</td><td>Location: CC (Community Commercial) corridor zoning vs. the subject's DT2 downtown-core zoning, which generally commands a premium (+8%). Size: comp is 147% larger than the subject, and smaller buildings like the subject command a $/SF premium (+22%). Condition: comp offers a loading dock/roll-up configuration and no disclosed depreciation, generally superior functional utility to the subject's heavily depreciated layout (&minus;8%). Time: sale closed ~2.1 yrs ago; modest appreciation since (+4%).</td><td><strong>$56.54</strong></td></tr>
+            <tr><td><strong>1500 Gillespie St</strong></td><td>$67.57</td><td>&minus;6%</td><td>Location: Gillespie St corridor, outside the downtown core, generally a lower-demand corridor than DT2 downtown (+6%). Size: comp is 63% smaller than the subject (&minus;12%). Condition: flex-grade building of unclear condition; subject's documented heavy depreciation warrants a further discount (&minus;8%). Time: sale closed ~3.6 yrs ago; appreciation since, corroborated by this property's 2025 re-listing at a materially higher asking price (+8%).</td><td><strong>$63.52</strong></td></tr>
+          </table>
+        </div>
+        <p class="note">Adjusted range (excluding the 344 Ray Ave outlier): <strong>$56.54&ndash;$103.38/SF</strong> (simple average $81.20/SF). Grant-Murray reconciles to <strong>$75.00/SF</strong> &mdash; below the simple average, weighted toward the size-adjusted 301 Robeson St and 1500 Gillespie St outcomes and tempering the two Mason St comps' higher figures, since neither carries the subject's exceptional 63% physical depreciation. 344 Ray Ave is retained above for disclosure but excluded from this weighted reconciliation as a small-building, land-value-driven outlier. This is a broker's professional judgment, not a statistically derived mean; adjustments reflect Grant-Murray Real Estate's professional judgment as the prospective listing broker, not a certified USPAP appraisal adjustment analysis.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Value analysis &amp; opinion of value</h2>
+        <div class="card">
+          <div class="stats">
+            <div class="stat"><div class="stat-label">Indicated value ($75.00/SF &times; 4,740 SF)</div><div class="stat-value">$355,500</div></div>
+            <div class="stat"><div class="stat-label">Rounded indicated value</div><div class="stat-value">$355,000</div></div>
+            <div class="stat stat-alert"><div class="stat-label">Recommended list price</div><div class="stat-value">$369,000</div></div>
+            <div class="stat"><div class="stat-label">2025 assessed value (cost approach, reference only)</div><div class="stat-value">$249,787</div></div>
+          </div>
+          <p class="note" style="margin-top:1.5rem">Applying the reconciled <strong>$75.00/SF</strong> to the subject's county-confirmed <strong>4,740 SF</strong> yields an indicated value of <strong>4,740 &times; $75.00 = $355,500</strong>, rounded to <strong>$355,000</strong>. As a floor check, the county's own land-only valuation ($47,724, at $2.75/SF against the 18,730.80 SF parcel) sits far below this conclusion, confirming the building itself retains real, positive market value despite its documented depreciation. Grant-Murray recommends an initial asking price of <strong>$369,000</strong>, a modest premium over the indicated value that leaves room to negotiate down and reflects the added marketability of the property's proven, zoning-conforming indoor-recreation reuse. This is a broker's opinion for marketing purposes, not a certified USPAP appraisal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Comparable leases &mdash; small commercial / flex space, Fayetteville</h2>
+        <p class="lede" style="margin-bottom:var(--space-6)">Downtown Fayetteville retail asking rates run roughly $9&ndash;$28/SF/Yr (averaging ~$17&ndash;20/SF/Yr for finished storefront space), while flex/light-industrial space citywide averages closer to $10&ndash;13/SF/Yr. The subject's age, depreciation, and service-garage character place it closer to the flex end of that range despite its downtown location.</p>
+        <div class="card table-wrap">
+          <table class="table comps-table">
+            <tr><th>Comp</th><th>Size</th><th>Asking rate</th><th>Notes</th><th>Source</th></tr>
+            <tr><td><strong>201&ndash;203 Franklin St</strong>, Fayetteville, NC</td><td>5,751 SF</td><td>~$12.52/SF/Yr</td><td>Flex space with rear loading, downtown Fayetteville</td><td><a href="https://realmo.com/industrial-properties/for-lease/nc/cumberland-county/" target="_blank" rel="noopener">Realmo</a></td></tr>
+            <tr><td><strong>3116 Bragg Blvd</strong>, Fayetteville, NC</td><td>5,760 SF</td><td>$14.00/SF/Yr</td><td>Retail/medical storefront space, Bragg Blvd corridor</td><td><a href="https://realmo.com/commercial-real-estate/for-lease/nc/fayetteville/" target="_blank" rel="noopener">Realmo</a></td></tr>
+            <tr><td><strong>504 Cumberland St</strong> (Cumberland Defense Flex Park), Fayetteville, NC</td><td>1,625 SF</td><td>$6.50&ndash;$16.50/SF/Yr</td><td>Warehouse with private office, gated loading access</td><td><a href="https://www.crexi.com/lease/properties/NC/Fayetteville/Warehouses" target="_blank" rel="noopener">Crexi</a></td></tr>
+            <tr><td><strong>1500 Gillespie St</strong>, Fayetteville, NC (same property as sale comp above)</td><td>1,776 SF</td><td>Re-listed for sale 2025 at $175,000</td><td>Small flex building; used here only to corroborate appreciation since its 2023 sale</td><td><a href="https://raleighrealty.com/home/1500-gillespie-st-fayetteville-nc-28306-1aa8a17d" target="_blank" rel="noopener">Raleigh Realty</a></td></tr>
+          </table>
+        </div>
+        <p class="note">Citywide flex-space averages ranged $10.21&ndash;$11.74/SF/Yr across several current listing aggregations, with a top end near $18.50/SF/Yr for newer Class A product &mdash; well above what the subject's age and condition could realistically command (<a href="https://realmo.com/flex-space/for-lease/nc/fayetteville/" target="_blank" rel="noopener">Realmo &mdash; Fayetteville flex space</a>, <a href="https://www.cityfeet.com/cont/fayetteville-nc/flex-space-for-lease" target="_blank" rel="noopener">CityFeet</a>). Pulled 9/15/2026.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Recommended lease terms</h2>
+        <div class="card">
+          <div class="stats">
+            <div class="stat"><div class="stat-label">Recommended asking rate</div><div class="stat-value">$9.50/SF/Yr, NNN</div></div>
+            <div class="stat"><div class="stat-label">Estimated annual rent (4,740 SF)</div><div class="stat-value">$45,030/yr</div></div>
+            <div class="stat"><div class="stat-label">Estimated monthly rent</div><div class="stat-value">$3,752.50/mo</div></div>
+            <div class="stat"><div class="stat-label">Gross-equivalent rate</div><div class="stat-value">~$11.50/SF/Yr</div></div>
+          </div>
+          <p class="note" style="margin-top:1.5rem">Grant-Murray recommends positioning 317 Union St as small downtown <strong>flex/service-commercial space</strong> rather than premium finished storefront retail, given its age and county-documented depreciation. A <strong>triple-net (NNN)</strong> structure at <strong>$9.50/SF/Yr</strong> (tenant responsible for its pro-rata share of CAM, property tax, and insurance, plus utilities) sits above the citywide flex average to capture the downtown-proximity premium, while remaining well below finished downtown retail rates the building's condition cannot support. An initial <strong>3&ndash;5 year term</strong> with a renewal option is recommended, with the building offered largely <strong>as-is</strong> given its depreciation profile &mdash; limited landlord TI contribution should be expected. Ideal tenant profile: indoor recreation/sports training (the current, zoning-conforming use), light retail, service (non-automotive), storage/flex, or professional office. <strong>Automobile repair or servicing cannot be offered to a prospective tenant</strong> as a permitted use under current DT2 zoning &mdash; see the zoning analysis above.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Listing / commission terms</h2>
+        <div class="card">
+          <div class="terms-grid">
+            <div>
+              <h4>Sale listing</h4>
+              <p><strong>6% co-brokered</strong> &mdash; applies to the gross sale price when the buyer is procured through a cooperating broker, split per standard MLS/commercial co-brokerage practice.</p>
+              <p style="margin-top:.5rem"><strong>4% in-house</strong> &mdash; applies when Grant-Murray Real Estate, LLC procures the buyer directly.</p>
+            </div>
+            <div>
+              <h4>Lease listing</h4>
+              <p><strong>6% of aggregate lease value, co-brokered</strong> &mdash; applies to the full base-rent value of a new lease when a cooperating broker represents the tenant.</p>
+              <p style="margin-top:.5rem"><strong>4% of aggregate lease value, in-house</strong> &mdash; applies when Grant-Murray Real Estate, LLC procures the tenant directly.</p>
+            </div>
+          </div>
+          <p class="note">Listing broker: <strong>Patrick Murray, CCIM, SIOR</strong>, Grant-Murray Real Estate, LLC. Before finalizing either listing agreement, confirm the existing "RJS"-branded marketing (see disclosure above) and the ownership relationship between Everhart LLC and RJS Properties, Inc. with the client contact. Final listing agreement terms, duration, and marketing-cost provisions are to be set out in a separate written agreement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Limitations</h2>
+        <div class="card">
+          <ol style="margin:0 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.6rem"><strong>No client documents were supplied for this assignment.</strong> All comps, zoning research, and subject-property facts were independently researched from public records and commercial listing sources; the county CAMA record is treated as the authoritative source for building size, depreciation, and land data.</li>
+            <li style="margin-bottom:.6rem"><strong>Land size discrepancy:</strong> the county's administrative record shows 0.43 ac while a GIS-calculated figure shows 0.38 ac. This report uses the administrative figure but has not resolved the discrepancy with a survey.</li>
+            <li style="margin-bottom:.6rem"><strong>344 Ray Ave is disclosed but treated as a secondary/outlier data point</strong> due to its small size and land-value-driven pricing; it is excluded from the weighted sale-value reconciliation.</li>
+            <li style="margin-bottom:.6rem"><strong>Ownership/marketing relationship not directly confirmed.</strong> The match between Everhart LLC's mailing address and RJS Properties, Inc.'s headquarters address is a strong circumstantial indicator of an affiliated relationship, not a confirmed fact from a reviewed corporate filing; Grant-Murray should confirm this directly with the client before proceeding.</li>
+            <li style="margin-bottom:.6rem"><strong>The county's $249,787 assessed value is a cost-approach figure only</strong> and is not relied upon in this opinion; it is cited for reference only.</li>
+            <li style="margin-bottom:.6rem"><strong>Zoning/nonconforming-use analysis is based on the published UDO use table</strong> and has not been separately confirmed with Fayetteville Planning &amp; Zoning staff. A buyer or tenant proposing any automotive-adjacent use should confirm current status directly with the city before relying on this analysis.</li>
+            <li style="margin-bottom:.6rem">Building area for the subject and all comps is the county assessor's recorded GLA or the sale/listing source's reported building SF, not an independent field measurement.</li>
+            <li style="margin-bottom:.6rem">The current in-place tenancies (Gladiator Elite Wrestling and Fear This Wrestling Club) are disclosed for informational completeness only; per client direction, this report values the real estate as vacant/owner-occupied and vacating, not on any in-place lease income.</li>
+            <li>This is a broker's opinion of value for marketing purposes, prepared by Grant-Murray Real Estate, LLC, not a certified USPAP appraisal.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container two-col">
+        <div class="card">
+          <h3>Prepared by</h3>
+          <p><strong>Patrick Murray, CCIM, SIOR</strong><br/>Principal / Broker in Charge<br/>Grant-Murray Real Estate, LLC</p>
+          <p style="margin-top:.75rem">150 N. McPherson Church Rd<br/>Fayetteville, NC 28303</p>
+          <p style="margin-top:.75rem">O: 910.829.1617 &middot; C: 910.861.0449<br/>patrick@grantmurrayre.com<br/><a href="https://www.grantmurrayre.com" target="_blank" rel="noopener">grantmurrayre.com</a></p>
+        </div>
+        <div class="card">
+          <h3>Prepared for</h3>
+          <p><strong>Everhart LLC</strong><br/>Owner of record, 317 Union St<br/>2730 A Rozzelles Ferry Rd<br/>Charlotte, NC 28208</p>
+          <p style="margin-top:.5rem"><em>No specific individual client contact was provided for this assignment; the ownership entity of record is used here as a placeholder and should be updated with the correct contact before delivery.</em></p>
+          <p class="disclaimer">This Broker Price Opinion (BPO) is prepared by Patrick Murray, CCIM, SIOR, of Grant-Murray Real Estate, LLC. It is not an appraisal and does not constitute a certified valuation under USPAP. The sale-value conclusion herein uses the sales comparison approach, built on independently researched closed sales, cross-checked against (but not reliant upon) the county's cost-approach assessed value. The lease recommendation is based on an independent market-rent survey. Both are subject to further verification, changing market conditions, confirmation of zoning assumptions with Fayetteville Planning &amp; Zoning staff, and additional due diligence, including clarification of the property's existing "RJS"-branded marketing.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <img class="footer-logo" src="assets/gm-logo.svg" alt="Grant-Murray Real Estate" />
+      <div>
+        Broker Price Opinion — prepared 9/15/2026.<br/>
+        Prepared by Grant-Murray Real Estate | CCIM | SIOR
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
